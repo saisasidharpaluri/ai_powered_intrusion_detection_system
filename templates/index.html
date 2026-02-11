@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="5" />
+    <!-- Auto refresh every 5 seconds -->
+    <title>AI-IDS Dashboard</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .safe {
+        color: green;
+        font-weight: bold;
+      }
+      .malicious {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Network Traffic Monitor</h1>
+      <p>Real-time AI-based Intrusion Detection System</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Protocol</th>
+            <th>Prediction</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for alert in alerts reversed %}
+          <tr>
+            <td>{{ alert.timestamp }}</td>
+            <td>{{ alert.src_ip }}</td>
+            <td>{{ alert.dst_ip }}</td>
+            <td>{{ alert.protocol }}</td>
+            <td>{{ alert.prediction }}</td>
+            <td class="{{ 'safe' if alert.status == 'Safe' else 'malicious' }}">
+              {{ alert.status }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
