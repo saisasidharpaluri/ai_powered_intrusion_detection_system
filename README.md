@@ -2,7 +2,8 @@
 
 An **AI-driven Network Intrusion Detection System** capable of capturing live network traffic and classifying it as "Normal" or "Malicious" in real-time. This project leverages **Machine Learning (Random Forest)**, **Scapy** for packet sniffing, and **Flask** for web-based visualization.
 
----place picture here ---
+<img width="915" height="491" alt="image" src="https://github.com/user-attachments/assets/ffcb6ffe-04c3-4083-8b21-f5aedb42fec8" />
+
 
 ## 🚀 Features
 
